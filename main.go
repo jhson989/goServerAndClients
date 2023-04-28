@@ -1,9 +1,9 @@
 package main
 
 import (
+	"goServerAndClients/client"
+	"goServerAndClients/server"
 	"runtime"
-	"server-clients/client"
-	"server-clients/server"
 	"sync"
 )
 

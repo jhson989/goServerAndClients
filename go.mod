@@ -1,3 +1,3 @@
-module server-clients
+module goServerAndClients
 
 go 1.20
