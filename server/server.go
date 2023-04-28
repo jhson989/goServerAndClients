@@ -31,10 +31,10 @@ func RunServer(waitGroup *sync.WaitGroup) {
  * ******************************************************************************/
 func runServerRoutine() *http.Server {
 
-	var pages Page
-
 	httpServer := &http.Server{Addr: ":8000"}
-	http.HandleFunc("/", pages.rootPage)
+	//http.HandleFunc("/", pages.rootPage)
+	http.HandleFunc("/", RoutingTable["/"].(func(http.ResponseWriter, *http.Request)))
+	http.HandleFunc("/hello", RoutingTable["/hello"].(func(http.ResponseWriter, *http.Request)))
 
 	go func() {
 		if err := httpServer.ListenAndServe(); err != http.ErrServerClosed {

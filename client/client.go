@@ -37,7 +37,7 @@ func RunClient(waitGroup *sync.WaitGroup, clientID int, channelFinishSignal chan
  * Client logic
  * ******************************************************************************/
 func runClientRoutine(clientID int) {
-	response, err := http.Get("http://0.0.0.0:8000/")
+	response, err := http.Get("http://0.0.0.0:8000/hello")
 	if err == nil {
 		defer response.Body.Close()
 		data, err := ioutil.ReadAll(response.Body)
